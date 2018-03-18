@@ -15,4 +15,4 @@
 //    return view('new_print');
 //});
 
-Route::match(['get','post'], '/', 'Report\ReportController@new_print');
+Route::match(['get','post'], '/', 'Report\ReportController@newPrintReport')->name('new_print_report');
