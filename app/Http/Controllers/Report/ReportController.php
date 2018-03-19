@@ -42,12 +42,29 @@ class ReportController extends Controller{
                'last_ticket_num'=> $input['last_ticket_num']
                   ]
             );
-            var_dump($input);
+            return redirect('/report');
         }
 
     }
 
-    public function fullReport(){
+    public function fullReport(Request $request){
+        if($request->isMethod('post')){
+            $input = $request->only(['report_date', 'group']);
+            $report = DB::table('report')
+                        ->select("report.*",
+                            DB::raw("(SELECT users.name from users where report.contragent = users.id) as username"))
+                        ->orderBy('create_at', 'desc')
+                        ->orderBy($input['group'], 'asc')
+                        ->where('create_at', $input['report_date'])
+                        ->get();
+        }else{
+            $report = DB::table('report')
+                        ->select("report.*",
+                            DB::raw("(SELECT users.name from users where report.contragent = users.id) as username"))
+                        ->orderBy('create_at', 'desc')
+                        ->get();
+        }
 
+        return view('full_report', ['report' => $report]);
     }
 }

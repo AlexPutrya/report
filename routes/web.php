@@ -16,3 +16,4 @@
 //});
 
 Route::match(['get','post'], '/', 'Report\ReportController@newPrintReport')->name('new_print_report');
+Route::match(['get','post'], '/report', 'Report\ReportController@fullReport')->name('full_report');
