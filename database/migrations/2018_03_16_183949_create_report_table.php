@@ -19,10 +19,11 @@ class CreateReportTable extends Migration
             $table->string('ticket_type');
             $table->string('denomination');
             $table->integer('quantity');
-            $table->string('complex');
-            $table->integer('contragent')->unsigned();
             $table->string('first_ticket_num');
             $table->string('last_ticket_num');
+            $table->string('complex');
+            $table->integer('contragent')->unsigned();
+            $table->boolean('promotional');
 
             $table->foreign('contragent')->references('id')->on('users');
 

@@ -38,6 +38,7 @@
                 <th scope="col">№ последнего билета</th>
                 <th scope="col">Комплекс</th>
                 <th scope="col">Контрагент</th>
+                <th scope="col">Акционные</th>
             </tr>
             </thead>
             <tbody>
@@ -51,6 +52,7 @@
                     <td>{{$row->last_ticket_num}}</td>
                     <td>{{$row->complex}}</td>
                     <td>{{$row->username}}</td>
+                    <td>{!! $row->promotional ? '<i class="fas fa-check-circle"></i>': '' !!}</td>
                 </tr>
             @endforeach
             </tbody>

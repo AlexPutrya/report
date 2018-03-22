@@ -27,22 +27,27 @@ class ReportController extends Controller{
             ]);
 
             if($validator->fails()){
-                return redirect('/')
+                return redirect()
+                    ->route('new_print_report')
                     ->withErrors('Не все данные заполнены');
             }
+
+            $promotional = isset($input['promotional']) ? true : false;
 
             DB::table('report')->insert(
               ['create_at' => $input['created_date'],
                'ticket_type' => $input['ticket_type'],
-               'denomination'=> $input['denomination'],
+               'denomination' => $input['denomination'],
                'quantity' => $input['quantity'],
+               'first_ticket_num' => $input['first_ticket_num'],
+               'last_ticket_num' => $input['last_ticket_num'],
                'complex' => $input['complex'],
-               'contragent'=> $input['contragent'],
-               'first_ticket_num'=> $input['first_ticket_num'],
-               'last_ticket_num'=> $input['last_ticket_num']
+               'contragent' => $input['contragent'],
+               'promotional' => $promotional
                   ]
             );
-            return redirect('/report');
+            return redirect()
+                ->route('full_report');
         }
 
     }
