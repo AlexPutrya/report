@@ -31,6 +31,7 @@
                 <option value="детский">детский</option>
                 <option value="взрослый">взрослый</option>
                 <option value="мультилифт">мультилифт</option>
+                <option value="служебный">служебный</option>
             </select>
         </div>
 
@@ -58,6 +59,20 @@
 
         <div class="input-group mb-1">
             <div class="input-group-prepend">
+                <span class="input-group-text">Номер первого билета: &nbsp; <i class="fas fa-sort-numeric-up"></i></span>
+            </div>
+            <input class="form-control" type="text" name="first_ticket_num">
+        </div>
+
+        <div class="input-group mb-1">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Номер последнего билета: &nbsp; <i class="fas fa-sort-numeric-up"></i> </span>
+            </div>
+            <input class="form-control" type="text" name="last_ticket_num">
+        </div>
+
+        <div class="input-group mb-1">
+            <div class="input-group-prepend">
                 <span class="input-group-text">Комплекс: &nbsp; <i class="far fa-building"></i></span>
             </div>
             <select class="custom-select" name="complex">
@@ -79,16 +94,10 @@
 
         <div class="input-group mb-1">
             <div class="input-group-prepend">
-                <span class="input-group-text">Номер первого билета: &nbsp; <i class="fas fa-sort-numeric-up"></i></span>
+                <span class="input-group-text">Aкционный: &nbsp; <i class="fas fa-exclamation"></i> </span>
             </div>
-            <input class="form-control" type="text" name="first_ticket_num">
-        </div>
-
-        <div class="input-group mb-1">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Номер последнего билета: &nbsp; <i class="fas fa-sort-numeric-up"></i> </span>
-            </div>
-            <input class="form-control" type="text" name="last_ticket_num">
+            &nbsp;
+            <input type="checkbox" name="promotional">
         </div>
 
         <button class="btn btn-outline-primary btn-lg btn-block" type="submit">Создать </button>
